@@ -5,7 +5,7 @@
         .shop_detail_main_edit
           %ul
             %li= link_to '編集', edit_shop_path(@shop)
-            %li= link_to '削除', "#"
+            %li= link_to '削除', shop_path, data: { confirm: '削除しますか？', method: 'delete' }
       .shop_detail_name
         %h1= @shop.name
       .shop_detail_image

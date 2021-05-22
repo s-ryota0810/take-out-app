@@ -37,7 +37,12 @@ class ShopsController < ApplicationController
     end
   end
   
-
+  def destroy
+    shop = Shop.find(params[:id])
+    shop.destroy!
+    redirect_to root_path, notice: '店舗情報を削除しました'
+  end
+  
   private
   
   def shop_params
