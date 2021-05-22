@@ -1,0 +1,22 @@
+.shop
+  .shop_detail
+    .shop_detail_main
+      - if user_signed_in?
+        .shop_detail_main_edit
+          %ul
+            %li= link_to '編集', "#"
+            %li= link_to '削除', "#"
+      .shop_detail_name
+        %h1= @shop.name
+      .shop_detail_image
+        = image_tag 'no-images.jpeg'
+      .shop_detail_review
+        %p 星4つ
+    .shop_detail_sub
+      .shop_detail_sub_menu
+        .shop_detail_sub_menu_el
+          = link_to 'メニュー', '#'
+        .shop_detail_sub_menu_el
+          = link_to 'アクセス', '#'
+        .shop_detail_sub_menu_el
+          = link_to '口コミ', '#'

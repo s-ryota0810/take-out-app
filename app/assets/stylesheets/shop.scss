@@ -68,4 +68,75 @@
       min-height: 40px;
     }
   }
+
+  &_detail {
+    background-color: white;
+    padding: 10px;
+    box-sizing: border-box;
+    
+    &_main {
+      position: relative;
+      
+      &_edit {
+        position: absolute;
+        top: 0;
+        right: 20px;
+        
+        ul {
+          display: flex;
+          
+        }
+        
+        li > a {
+          padding: 4px 5px;
+          color: black;
+        }
+      }
+    }
+    
+    &_name {
+      border-bottom: 1px solid $border-color;
+      margin-bottom: 14px;
+    }
+    
+    &_image {
+      height: 360px;
+      width: 360px;
+      padding: 14px;
+      margin: 0 auto;
+      
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+    
+    &_sub {
+      padding-top: 30px;
+      
+      &_menu {
+        display: flex;
+        justify-content: space-around;
+        
+        &_el {
+          width: 33%;
+          padding: 16px 0;
+          border-bottom: 7px solid $border-color;
+          box-sizing: border-box;
+          text-align: center;
+          background-color: $secondary-color;
+          a {
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+          }
+          
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+  }
+
 }
