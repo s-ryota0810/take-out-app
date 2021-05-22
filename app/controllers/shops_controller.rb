@@ -1,6 +1,7 @@
 class ShopsController < ApplicationController
   before_action :load_shop, only: [:show, :edit, :update]
 
+
   def index
     @shops = Shop.all
   end
