@@ -1,4 +1,5 @@
 class Shop < ApplicationRecord
+  validates :name, presence: true
   has_many_attached :images
   
   def shop_image
