@@ -1,4 +1,5 @@
 class ShopsController < ApplicationController
+  before_action :load_shop, only: [:show, :edit, :update]
   
   def index
     @shops = Shop.all
@@ -19,15 +20,12 @@ class ShopsController < ApplicationController
   end
   
   def show
-    @shop = Shop.find(params[:id])
   end
   
   def edit
-    @shop = Shop.find(params[:id])
   end
 
   def update
-    @shop = Shop.find(params[:id])
     @shop.assign_attributes(shop_params)
     if @shop.save
       redirect_to @shop, notice: '店舗情報を更新しました'
@@ -44,6 +42,10 @@ class ShopsController < ApplicationController
   end
   
   private
+
+  def load_shop
+    @shop = Shop.find(params[:id])
+  end
   
   def shop_params
     params.require(:shop).permit(:name, :images, [] )
