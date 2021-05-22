@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
   before_action :load_shop, only: [:show, :edit, :update]
-
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @shops = Shop.all
