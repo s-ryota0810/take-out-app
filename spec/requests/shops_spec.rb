@@ -24,5 +24,13 @@ RSpec.describe "Shops", type: :request do
         expect(Shop.last.name).to eq(shop_params[:name])
       end        
     end
+    
+    context 'if user not sign in' do
+      it "shop info can not be save" do
+        shop_params = attributes_for(:shop)
+        post shops_path(shop: shop_params)
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
   end
 end
