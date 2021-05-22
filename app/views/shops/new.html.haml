@@ -1,0 +1,7 @@
+= form_with(model: @shop, local: true) do |f|
+  .add_image
+  .add_name
+    = f.label :name
+    = f.text_field :name
+  .submit_shop
+    = f.submit '登録'
