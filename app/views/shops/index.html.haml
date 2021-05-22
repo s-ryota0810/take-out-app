@@ -22,3 +22,7 @@
               .shop_info_review.clearfix
                 %dt レビュー
                 %dd 星4つ
+- if user_signed_in?
+  .new_shop
+    = link_to new_shop_path do
+      %i.fas.fa-plus-square.fa-4x.fa-color
