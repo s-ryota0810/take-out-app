@@ -21,6 +21,7 @@ class ShopsController < ApplicationController
   end
 
   def show
+    @menus = @shop.menus
   end
 
   def edit
