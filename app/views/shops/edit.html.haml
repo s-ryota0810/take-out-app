@@ -1,7 +1,7 @@
 = form_with(model: @shop, local: true) do |f|
-  .new_image
-  .new_name
+  .edit_image
+  .edit_name
     = f.label :name
     = f.text_field :name
-  .new_submit
+  .edit_submit
     = f.submit '登録'

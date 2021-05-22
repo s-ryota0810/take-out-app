@@ -21,6 +21,22 @@ class ShopsController < ApplicationController
   def show
     @shop = Shop.find(params[:id])
   end
+  
+  def edit
+    @shop = Shop.find(params[:id])
+  end
+
+  def update
+    @shop = Shop.find(params[:id])
+    @shop.assign_attributes(shop_params)
+    if @shop.save
+      redirect_to @shop, notice: '店舗情報を更新しました'
+    else
+      flash.now[:error] = '更新できませんでした'
+      render :edit
+    end
+  end
+  
 
   private
   
