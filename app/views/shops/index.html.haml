@@ -1,0 +1,28 @@
+.shop
+  - @shops.each do |shop|
+    = link_to shop_path(shop) do
+      .shop_list
+        .shop_info
+          .shop_info_image
+            = image_tag shop.shop_image
+          .shop_info_description
+            %dl
+              .shop_info_name.clearfix
+                %dt 店舗名
+                %dd= shop.name
+              .shop_info_address.clearfix
+                %dt 住所
+                %dd 東京都世田谷区
+              .shop_info_worktime.clearfix
+                %dt 営業時間
+                %dd 10:00〜22:00
+              .shop_info_access.clearfix
+                %dt アクセス
+                %dd 〇〇駅から徒歩5分
+              .shop_info_review.clearfix
+                %dt レビュー
+                %dd 星4つ
+- if user_signed_in?
+  .new_shop
+    = link_to new_shop_path do
+      %i.fas.fa-plus-square.fa-4x.fa-color

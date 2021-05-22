@@ -1,0 +1,36 @@
+@import 'variable';
+
+html {
+  background-color: $background-color;  
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  padding: 16px;
+  margin-top: 80px;
+}
+
+ul {
+  padding-inline-start: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.center {
+  margin: 0 auto;
+}
