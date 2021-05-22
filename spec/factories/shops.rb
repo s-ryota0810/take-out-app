@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :shop do
-    name { 'test' }
+    name { Faker::Lorem.characters(number: 3) }
   end
 end
