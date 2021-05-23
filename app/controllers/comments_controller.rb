@@ -9,8 +9,9 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.create(comment_params)
     if @comment.save
-      redirect_to shop_path(@comment.shop)
+      redirect_to shop_path(@comment.shop), notice: 'コメントを投稿しました'
     else
+      flash.now[:error] = '投稿できませんでした'
       render :new
     end
   end
