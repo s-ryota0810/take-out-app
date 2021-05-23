@@ -1,0 +1,9 @@
+= form_with(model: [@shop, @menu], local: true) do |f|
+  .edit_name
+    = f.label :name
+    = f.text_field :name
+  .edit_price
+    = f.label :price
+    = f.number_field :price
+  .edit_submit
+    = f.submit '登録'

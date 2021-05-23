@@ -30,8 +30,8 @@
                 %dd.menu_price¥#{menu.price}
                 - if user_signed_in?
                   .edit_menus
-                    = link_to '編集', '#'
+                    = link_to '編集', edit_shop_menu_path(@shop)
                     = link_to '削除', '#'
           - if user_signed_in?
             .new_menus
-              = link_to 'メニューの追加', new_shop_menus_path(@shop)
+              = link_to 'メニューの追加', new_shop_menu_path(@shop)
