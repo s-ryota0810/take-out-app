@@ -2,20 +2,20 @@
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = render "users/shared/error_messages", resource: resource
   .field
-    = f.label :email
+    = f.label :email, class: 'input_label'
     %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
+    = f.email_field :email, autofocus: true, autocomplete: "email", class: 'input_area'
   .field
-    = f.label :password
+    = f.label :password, class: 'input_label'
     - if @minimum_password_length
       %em
         (#{@minimum_password_length} characters minimum)
     %br/
-    = f.password_field :password, autocomplete: "new-password"
+    = f.password_field :password, autocomplete: "new-password", class: 'input_area'
   .field
-    = f.label :password_confirmation
+    = f.label :password_confirmation, class: 'input_label'
     %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
+    = f.password_field :password_confirmation, autocomplete: "new-password", class: 'input_area'
   .actions
-    = f.submit "Sign up"
+    = f.submit "Sign up", class: 'btn btn_sign'
 = render "users/shared/links"
