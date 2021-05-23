@@ -1,0 +1,23 @@
+@import 'variable';
+
+.input_area {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 8px;
+  font-size: $input-fontSize;
+  font-weight: bold;
+  border: none;
+}
+
+.input_label {
+  font-weight: bold;
+}
+
+.field {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.content {
+  min-height: 400px;
+}
