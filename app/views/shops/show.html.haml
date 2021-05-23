@@ -20,3 +20,18 @@
           = link_to 'アクセス', '#'
         .shop_detail_sub_menu_el
           = link_to '口コミ', '#'
+      .shop_detail_description
+        .shop_detail_description_el
+          %h2 メニュー一覧
+          - @menus.each do |menu|
+            .show_menu
+              %dl.show_menu_info.clearfix
+                %dt.menu_name= menu.name
+                %dd.menu_price¥#{menu.price}
+                - if user_signed_in?
+                  .edit_menus
+                    = link_to '編集', edit_shop_menu_path(@shop)
+                    = link_to '削除', shop_menu_path(@shop, menu), data: { method: 'delete', confirm: 'メニュー情報を削除しますか'}
+          - if user_signed_in?
+            .new_menus
+              = link_to 'メニューの追加', new_shop_menu_path(@shop)

@@ -1,6 +1,7 @@
 class Shop < ApplicationRecord
   validates :name, presence: true
   has_many_attached :images
+  has_many :menus, dependent: :destroy
 
   def shop_image
     if self.images.attached?

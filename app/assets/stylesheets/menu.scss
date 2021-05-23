@@ -1,0 +1,22 @@
+.show_menu_info {
+  width: 100%;
+  position: relative;  
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.menu_name {
+  width: 40%;
+  font-size: 18px;
+  margin-left: 8px;
+}
+
+.menu_price {
+  width: 40%;
+  text-align: center;
+}
+
+.edit_menus {
+  position: absolute;
+  right: 100px;
+}
