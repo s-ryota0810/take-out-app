@@ -1,6 +1,6 @@
 class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :shop
-  validates :title, precense: true
-  validates :content, precense: true, length: { maximum: 300, minimum: 2 }
+  validates :title, presence: true
+  validates :content, presence: true, length: { maximum: 300, minimum: 2 }
 end

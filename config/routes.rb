@@ -9,6 +9,6 @@ Rails.application.routes.draw do
 
   resources :shops do
     resources :menus
+    resources :comments
   end
-  
 end
