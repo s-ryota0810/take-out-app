@@ -7,6 +7,20 @@
     = f.label :content, 'クチコミ内容'
   .field
     = f.text_area :content
+  %div
+    = f.label :star, '評価'
+  #star.field
+    = f.hidden_field :star, id: :review_star
   .field
     = f.submit '投稿'
+  :javascript
+    $('#star').raty({
+      size     : 36,
+      starOff:  '#{asset_path("star-off.png")}',
+      starOn : '#{asset_path("star-on.png")}',
+      starHalf: '#{asset_path("star-half.png")}',
+      scoreName: 'comment[star]',
+      half: true,
+    });
+    
   

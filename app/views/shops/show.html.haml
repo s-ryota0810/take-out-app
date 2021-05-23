@@ -47,6 +47,17 @@
               .show_comment_content
                 = comment.content
               .show_comment_star
+                %div{:id => "star-rate#{comment.id}"}
+                :javascript
+                  $('#star-rate#{comment.id}').raty({
+                    size :36,
+                    starOff :'#{asset_path("star-off.png")}',
+                    starOn  :'#{asset_path("star-on.png")}',
+                    starHalf:'#{asset_path("star-half.png")}',
+                    score   : '#{comment.star}',
+                    half    : true,
+                    readOnly: true,
+                  });
           - if user_signed_in?
             .new_comment
               = link_to 'クチコミの追加', new_shop_comment_path(@shop)

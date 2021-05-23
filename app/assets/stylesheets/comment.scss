@@ -1,13 +1,16 @@
 @import 'variable';
 
 .show_comment {
-  padding: 16px 10px;
+  margin: 16px 10px;
+  padding: 10px;
+  border: solid 1px $border-color;
   
   &_info {
     width: 100%;
     position: relative;  
     display: flex;
     flex-wrap: wrap;    
+    border-bottom: 1px solid $border-color;
   }
   
   &_title {
@@ -24,8 +27,7 @@
   }
   
   &_content {
-    border: 1px solid $border-color;
-    padding: 8px;
+    padding: 10px 0;
   }
 
 }
