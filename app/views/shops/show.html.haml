@@ -35,3 +35,29 @@
           - if user_signed_in?
             .new_menus
               = link_to 'メニューの追加', new_shop_menu_path(@shop)
+        .shop_detail_description_el
+          %h2 クチコミ一覧
+          - @comments.each do |comment|
+            .show_comment
+              .show_comment_info
+                .show_comment_title
+                  = comment.title
+                .show_comment_user
+                  = comment.user.email
+              .show_comment_content
+                = comment.content
+              .show_comment_star
+                %div{:id => "star-rate#{comment.id}"}
+                :javascript
+                  $('#star-rate#{comment.id}').raty({
+                    size :36,
+                    starOff :'#{asset_path("star-off.png")}',
+                    starOn  :'#{asset_path("star-on.png")}',
+                    starHalf:'#{asset_path("star-half.png")}',
+                    score   : '#{comment.star}',
+                    half    : true,
+                    readOnly: true,
+                  });
+          - if user_signed_in?
+            .new_comment
+              = link_to 'クチコミの追加', new_shop_comment_path(@shop)

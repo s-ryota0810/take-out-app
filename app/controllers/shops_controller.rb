@@ -22,6 +22,7 @@ class ShopsController < ApplicationController
 
   def show
     @menus = @shop.menus
+    @comments = @shop.comments
   end
 
   def edit

@@ -1,0 +1,26 @@
+= form_with(model: [@shop, @comment], local: true) do |f|
+  .field
+    = f.label :title, 'タイトル', class: 'input_label'
+  .field
+    = f.text_field :title, class:'input_area'
+  .field
+    = f.label :content, 'クチコミ内容', class: 'input_label'
+  .field
+    = f.text_area :content, class:'input_area content'
+  .field
+    = f.label :star, '評価', class: 'input_label'
+  #star.field
+    = f.hidden_field :star, id: :review_star
+  .field
+    = f.submit '投稿', class: 'btn btn_submit'
+  :javascript
+    $('#star').raty({
+      size     : 42,
+      starOff:  '#{asset_path("star-off.png")}',
+      starOn : '#{asset_path("star-on.png")}',
+      starHalf: '#{asset_path("star-half.png")}',
+      scoreName: 'comment[star]',
+      half: true,
+    });
+    
+  
