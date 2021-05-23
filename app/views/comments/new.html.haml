@@ -1,4 +1,4 @@
-= form_with(model: [@shop, @comment], local: true) do |f|
+= form_with(model: [@shop, @comment], url: shop_comments_path, local: true) do |f|
   .field
     = f.label :title, 'タイトル', class: 'input_label'
   .field

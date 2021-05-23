@@ -12,4 +12,6 @@
   %body
     = render 'layouts/header'
     .container
+      - if flash.present?
+        = render 'layouts/notice'
       = yield
