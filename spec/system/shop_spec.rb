@@ -7,7 +7,7 @@ RSpec.describe 'Shop', type: :system do
   it 'shop list can be displayed' do
     visit root_path
     shops.each do |shop|
-      expect(page).to have_content(shop.name)
+      expect(page).to have_css('.shop_info_name', text: shop.name)
     end
   end
 end
