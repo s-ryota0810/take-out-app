@@ -1,10 +1,10 @@
 class MenusController < ApplicationController
-  
+
   def new
     @shop = Shop.find(params[:shop_id])
     @menu = @shop.menus.build
   end
-  
+
   def create
     shop = Shop.find(params[:shop_id])
     @menu = shop.menus.create(menu_params)
@@ -14,12 +14,12 @@ class MenusController < ApplicationController
       render :new
     end
   end
-  
+
   def edit
     @shop = Shop.find(params[:shop_id])
     @menu = @shop.menus.find(params[:id])
   end
-  
+
   def update
     shop = Shop.find(params[:shop_id])
     @menu = shop.menus.find(params[:id])
@@ -38,7 +38,7 @@ class MenusController < ApplicationController
   end
 
   private
-  
+
   def menu_params
     params.require(:menu).permit(:name, :price)
   end
