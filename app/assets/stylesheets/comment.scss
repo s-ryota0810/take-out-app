@@ -1,0 +1,32 @@
+@import 'variable';
+
+.show_comment {
+  padding: 16px 10px;
+  
+  &_info {
+    width: 100%;
+    position: relative;  
+    display: flex;
+    flex-wrap: wrap;    
+  }
+  
+  &_title {
+    font-size: 24px;
+    height: 36px;
+  }
+  
+  &_user {
+    height: 36px;
+    line-height: 36px;
+    position: absolute;
+    right: 10px;
+    font-size: 12px;
+  }
+  
+  &_content {
+    border: 1px solid $border-color;
+    padding: 8px;
+  }
+
+}
+

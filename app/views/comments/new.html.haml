@@ -1,0 +1,12 @@
+= form_with(model: [@shop, @comment], local: true) do |f|
+  .field
+    = f.label :title, 'タイトル'
+  .field
+    = f.text_field :title
+  .field
+    = f.label :content, 'クチコミ内容'
+  .field
+    = f.text_area :content
+  .field
+    = f.submit '投稿'
+  
