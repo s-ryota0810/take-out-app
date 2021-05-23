@@ -29,7 +29,14 @@ class MenusController < ApplicationController
       render :edit
     end
   end
-  
+
+  def destroy
+    shop = Shop.find(params[:shop_id])
+    @menu = shop.menus.find(params[:id])
+    @menu.destroy!
+    redirect_to shop_path(shop)
+  end
+
   private
   
   def menu_params
