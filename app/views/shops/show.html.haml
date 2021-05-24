@@ -1,7 +1,7 @@
 .shop
   .shop_detail
     .shop_detail_main
-      - if user_signed_in?
+      - if user_signed_in? && current_user.admin?
         .shop_detail_main_edit
           %ul
             %li= link_to '編集', edit_shop_path(@shop)
