@@ -3,6 +3,7 @@ class Shop < ApplicationRecord
   has_many_attached :images
   has_many :menus, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :favorites
 
   def shop_image
     if self.images.attached?
