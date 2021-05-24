@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   resources :shops do
     resources :menus
     resources :comments
+    resource :favorites, only: [:create, :destroy]
   end
 end
