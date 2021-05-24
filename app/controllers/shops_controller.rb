@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
   before_action :load_shop, only: [:show, :edit, :update]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_admin, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @shops = Shop.all
@@ -54,4 +54,9 @@ class ShopsController < ApplicationController
     params.require(:shop).permit(:name, :images, [] )
   end
 
+  def authenticate_admin
+    if !user_signed_in? || !current_user.admin?
+      redirect_to root_path, alert: '権限エラーです'
+    end
+  end
 end

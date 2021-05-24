@@ -1,5 +1,6 @@
 class MenusController < ApplicationController
-
+  before_action :authenticate_admin
+  
   def new
     @shop = Shop.find(params[:shop_id])
     @menu = @shop.menus.build
@@ -43,4 +44,9 @@ class MenusController < ApplicationController
     params.require(:menu).permit(:name, :price)
   end
 
+  def authenticate_admin
+    if !user_signed_in? || !current_user.admin?
+      redirect_to root_path, alert: '権限エラーです'
+    end
+  end
 end
