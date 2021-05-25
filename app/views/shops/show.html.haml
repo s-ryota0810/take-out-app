@@ -6,6 +6,15 @@
           %ul
             %li= link_to '編集', edit_shop_path(@shop)
             %li= link_to '削除', shop_path, data: { confirm: '削除しますか？', method: 'delete' }
+      - elsif user_signed_in?
+        .shop_detail_main_edit
+          .favorite
+            - if current_user.has_favorited?(@shop)
+              .with_favorited
+                = link_to 'お気に入り解除', shop_favorites_path(@shop), method: :delete
+            -else
+              .non_favorited
+                = link_to 'お気に入り登録', shop_favorites_path(@shop), method: :post
       .shop_detail_name
         %h1= @shop.name
       .shop_detail_image
