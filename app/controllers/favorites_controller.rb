@@ -14,4 +14,8 @@ class FavoritesController < ApplicationController
     @favorite.destroy!
     redirect_to @shop
   end
+  
+  def show
+    @favorites = current_user.favorites
+  end
 end
