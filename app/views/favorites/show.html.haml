@@ -1,0 +1,27 @@
+.favorites
+  .favorites_title
+    %h1 お気に入り店舗一覧
+  .favorites_shop
+    - @favorites.each do |favorite|
+      = link_to shop_path(favorite.shop) do
+        .shop_list
+          .shop_info
+            .shop_info_image
+              = image_tag favorite.shop.shop_image
+            .shop_info_description
+              %dl
+                .shop_info_name.clearfix
+                  %dt 店舗名
+                  %dd= favorite.shop.name
+                .shop_info_address.clearfix
+                  %dt 住所
+                  %dd 東京都世田谷区
+                .shop_info_worktime.clearfix
+                  %dt 営業時間
+                  %dd 10:00〜22:00
+                .shop_info_access.clearfix
+                  %dt アクセス
+                  %dd 〇〇駅から徒歩5分
+                .shop_info_review.clearfix
+                  %dt レビュー
+                  %dd 星4つ

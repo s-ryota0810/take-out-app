@@ -16,4 +16,8 @@ Rails.application.routes.draw do
     resources :comments
     resource :favorites, only: [:create, :destroy]
   end
+  
+  scope '/' do
+    resource :favorites, only: [:show]
+  end
 end
