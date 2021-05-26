@@ -2,6 +2,10 @@
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = render "users/shared/error_messages", resource: resource
   .field
+    = f.label :name, class: 'input_label'
+    %br/
+    = f.text_field :name, autofocus: true, autocomplete: "email", class: 'input_area'
+  .field
     = f.label :email, class: 'input_label'
     %br/
     = f.email_field :email, autofocus: true, autocomplete: "email", class: 'input_area'
