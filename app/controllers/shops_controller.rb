@@ -23,6 +23,7 @@ class ShopsController < ApplicationController
   def show
     @menus = @shop.menus
     @comments = @shop.comments
+    gon.shop = @shop
   end
 
   def edit
@@ -51,7 +52,7 @@ class ShopsController < ApplicationController
   end
 
   def shop_params
-    params.require(:shop).permit(:name, :images, [] )
+    params.require(:shop).permit(:name, :address, :images, [] )
   end
 
   def authenticate_admin
