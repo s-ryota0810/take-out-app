@@ -15,4 +15,12 @@ class User < ApplicationRecord
   def has_favorited?(shop)
     self.favorites.exists?(shop_id: shop.id)
   end
+  
+  def display_name
+    if self.name.present?
+      self.name
+    else
+      '名無しさん'
+    end
+  end
 end
