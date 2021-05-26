@@ -25,6 +25,8 @@ gem 'devise'
 gem 'faker'
 gem 'hamlit'
 gem 'dotenv-rails'
+gem 'gon'
+gem 'geocoder'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
