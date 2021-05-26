@@ -4,6 +4,8 @@ class Shop < ApplicationRecord
   has_many :menus, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  geocoded_by :address
+  after_validation :geocode
 
   def shop_image
     if self.images.attached?

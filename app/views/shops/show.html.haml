@@ -45,6 +45,36 @@
             .new_menus
               = link_to 'メニューの追加', new_shop_menu_path(@shop)
         .shop_detail_description_el
+          %h2 アクセス
+          .show_access
+            .show_access_map
+              #map
+              - google_api = "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAP_API']}&callback=initMap".html_safe
+              %script{:async => "", :src=> google_api}
+            .show_access_info
+          
+          :javascript
+            let map;
+            function initMap(){
+              geocoder = new google.maps.Geocoder()
+              
+              map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                  lat: gon.shop.latitude,
+                  lng: gon.shop.longitude
+                },
+                zoom: 15,
+              });
+              
+              marker = new google.maps.Marker({
+                position: {
+                  lat: gon.shop.latitude,
+                  lng: gon.shop.longitude
+                },
+                map: map
+              });
+            }
+        .shop_detail_description_el
           %h2 クチコミ一覧
           - @comments.each do |comment|
             .show_comment

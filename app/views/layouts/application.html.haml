@@ -7,8 +7,9 @@
     = csrf_meta_tags
     = csp_meta_tag
     %link{:href => "https://use.fontawesome.com/releases/v5.6.3/css/all.css", :rel => "stylesheet"}/
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = include_gon
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_pack_tag 'application'
     = favicon_link_tag(source='favicon.ico')
   %body
     = render 'layouts/header'

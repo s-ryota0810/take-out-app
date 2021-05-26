@@ -1,0 +1,14 @@
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+.show_access {
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  
+  &_map {
+    height: 350px;
+  }
+}
