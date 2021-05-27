@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     resources :menus
     resources :comments
     resource :favorites, only: [:create, :destroy]
+    collection do
+      get 'search'
+    end
   end
   
   scope '/' do

@@ -1,6 +1,7 @@
 class ShopsController < ApplicationController
   before_action :load_shop, only: [:show, :edit, :update]
   before_action :authenticate_admin, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_q, only: [:index, :search]
 
   def index
     @shops = Shop.all
@@ -44,6 +45,11 @@ class ShopsController < ApplicationController
     shop.destroy!
     redirect_to root_path, notice: '店舗情報を削除しました'
   end
+  
+  def search
+    @results = @q.result
+    @search_word = @q.name_or_address_cont
+  end
 
   private
 
@@ -59,5 +65,9 @@ class ShopsController < ApplicationController
     if !user_signed_in? || !current_user.admin?
       redirect_to root_path, alert: '権限エラーです'
     end
+  end
+  
+  def set_q
+    @q = Shop.ransack(params[:q])
   end
 end
