@@ -27,6 +27,7 @@ gem 'hamlit'
 gem 'dotenv-rails'
 gem 'gon'
 gem 'geocoder'
+gem 'ransack'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

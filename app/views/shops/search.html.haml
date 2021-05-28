@@ -1,6 +1,7 @@
-= render 'layouts/search'
 .shop
-  - @shops.each do |shop|
+  = "「#{@search_word}」の検索結果・・・"
+  = "#{@results.count}件見つかりました"
+  - @results.each do |shop|
     = link_to shop_path(shop) do
       .shop_list
         .shop_info
@@ -23,7 +24,3 @@
               .shop_info_review.clearfix
                 %dt レビュー
                 %dd 星4つ
-- if user_signed_in? && current_user.admin?
-  .new_shop
-    = link_to new_shop_path do
-      %i.fas.fa-plus-square.fa-4x.fa-color
