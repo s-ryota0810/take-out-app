@@ -1,6 +1,13 @@
-= search_form_for @q, url: search_shops_path do |f|
-  .div
-    = f.label :name_or_address_cont, 'フリーワード検索'
-    = f.search_field :name_or_address_cont, placeholder: 'キーワード'
-    %br/
-    = f.submit '検索'
+.search
+  .search_field
+    = search_form_for @q, url: search_shops_path do |f|
+      .search_field_tab
+        .search_field_tab_el
+          = f.label :name_or_address_cont, 'フリーワード検索'
+        .search_field_tab_el
+          = f.label :address_cont, 'エリアから探す'
+      .search_field_select
+        .search_field_words
+          = f.search_field :name_or_address_cont, placeholder: 'キーワード', class:'search_field_words_form'
+        .search_field_submit
+          = f.submit '検索', class: 'search_field_submit_btn'
