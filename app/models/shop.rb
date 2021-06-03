@@ -7,7 +7,8 @@ class Shop < ApplicationRecord
   geocoded_by :address
   after_validation :geocode
   belongs_to :genre
-
+  belongs_to :area
+  
   def shop_image
     if self.images.attached?
       self.images[0]

@@ -40,6 +40,12 @@ ActiveRecord::Schema.define(version: 2021_06_03_122533) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "areas", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "comments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "shop_id"
@@ -84,6 +90,8 @@ ActiveRecord::Schema.define(version: 2021_06_03_122533) do
     t.float "latitude"
     t.float "longitude"
     t.bigint "genre_id"
+    t.bigint "area_id"
+    t.index ["area_id"], name: "index_shops_on_area_id"
     t.index ["genre_id"], name: "index_shops_on_genre_id"
   end
 
@@ -105,5 +113,6 @@ ActiveRecord::Schema.define(version: 2021_06_03_122533) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "favorites", "shops"
   add_foreign_key "favorites", "users"
+  add_foreign_key "shops", "areas"
   add_foreign_key "shops", "genres"
 end
