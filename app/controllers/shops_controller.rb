@@ -6,6 +6,8 @@ class ShopsController < ApplicationController
 
   def index
     @shops = Shop.all
+    @areas = Area.all
+    @genres = Genre.all
   end
 
   def new
@@ -49,7 +51,6 @@ class ShopsController < ApplicationController
   
   def search
     @results = @q.result
-    @search_word = @q.name_or_address_cont
   end
 
   private

@@ -16,4 +16,5 @@ class Shop < ApplicationRecord
       'no-images.jpeg'
     end
   end
+  
 end
