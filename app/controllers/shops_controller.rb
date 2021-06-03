@@ -1,10 +1,13 @@
 class ShopsController < ApplicationController
   before_action :load_shop, only: [:show, :edit, :update]
+  before_action :load_areas, :load_genres, only: [:new, :edit]
   before_action :authenticate_admin, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_q, only: [:index, :search]
 
   def index
     @shops = Shop.all
+    @areas = Area.all
+    @genres = Genre.all
   end
 
   def new
@@ -48,17 +51,24 @@ class ShopsController < ApplicationController
   
   def search
     @results = @q.result
-    @search_word = @q.name_or_address_cont
   end
 
   private
+  
+  def load_areas
+    @areas = Area.all
+  end
+  
+  def load_genres
+    @genres = Genre.all
+  end
 
   def load_shop
     @shop = Shop.find(params[:id])
   end
 
   def shop_params
-    params.require(:shop).permit(:name, :address, :images, [] )
+    params.require(:shop).permit(:name, :address, :area_id, :genre_id, :images, [] )
   end
 
   def authenticate_admin

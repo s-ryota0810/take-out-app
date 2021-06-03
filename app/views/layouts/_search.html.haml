@@ -1,13 +1,13 @@
 .search
-  .search_field
-    = search_form_for @q, url: search_shops_path do |f|
-      .search_field_tab
-        .search_field_tab_el
-          = f.label :name_or_address_cont, 'フリーワード検索'
-        .search_field_tab_el
-          = f.label :address_cont, 'エリアから探す'
+  = search_form_for @q, url: search_shops_path do |f|
+    .search_method
+      = f.label :area_name_or_name_or_address_cont, 'フリーワード検索', class: 'search_method_el'
+      = f.label :address_cont, 'エリアから探す', class: 'search_method_el'
+    .search_field
+      .search_field_input
+        = f.search_field :name_or_address_cont, placeholder: 'キーワード', class: 'search_field_input_form'
       .search_field_select
-        .search_field_words
-          = f.search_field :name_or_address_cont, placeholder: 'キーワード', class:'search_field_words_form'
-        .search_field_submit
-          = f.submit '検索', class: 'search_field_submit_btn'
+        = f.collection_select :area_id_eq, @areas, :id, :name, :include_blank => '東京全域'
+        = f.collection_select :genre_id_eq, @genres, :id, :name, :include_blank => '全ジャンル'
+      .search_field_submit
+        = f.submit '検索', class: 'search_btn'

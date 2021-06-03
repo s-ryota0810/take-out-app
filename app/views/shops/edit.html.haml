@@ -1,13 +1,23 @@
 = form_with(model: @shop, local: true) do |f|
   .edit_image
     = f.label :images, '店舗画像'
+    %br/
     = f.file_field :images
   .edit_name
     = f.label :name
+    %br/
     = f.text_field :name
   .edit_address
     = f.label :address
     %br/
     = f.text_field :address
+  .edit_genre
+    = f.label :genre
+    %br/
+    = f.collection_select :genre_id, @genres, :id, :name
+  .edit_area
+    = f.label :area
+    %br/
+    = f.collection_select :area_id, @areas, :id, :name
   .edit_submit
     = f.submit '登録'

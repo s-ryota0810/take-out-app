@@ -1,59 +1,71 @@
+@import 'variable';
+@import 'common';
+
 .search {
-  max-height: 150px;
-  padding: 10px;
+  width: 92%;
+  min-height: 100px;
   margin: 0 auto;
+  padding: 10px 20px;
+  background-color: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  
+  &_method {
+    border-bottom: solid 1px $border-color;
+    
+    &_el {
+      margin-right: 10px;
+    }
+  }
   
   &_field {
-    width: 100%;
-    max-height: 150px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-    background-color: white;
+    margin-top: 6px;
+    position: relative;
     
-    &_tab {
-      display: flex;
-      width: 90%;
-      border-bottom: 1px solid $border-color;
-      margin: 0 auto;
+    &_input {
+      width: 80%;
       
-      
-      &_el {
-        margin-right: 15px;
-        padding: 10px 0 5px 0;
+      &_form {
+        width: 100%;
+        border-radius: 6px;
+        padding: 5px;
+        border: 1px solid $border-color; 
       }
     }
     
-    &_words {
-     width: 80%;
-     
-     &_form {
-       width: 100%;
-       padding: 10px;
-       border: 1px solid $border-color;
-       border-radius: 5px;
-     }
+    &_select {
+      margin-top: 5px;
+      width: 80%;
+      
+      select {
+        width: 49%;
+        padding: 5px;
+        border: 1px solid $border-color;
+        border-radius: 6px;
+        margin-left: 2px;
+      }
+
     }
     
     &_submit {
-      text-align: center;
+      position: absolute;
+      top: 0;
+      right: 0;
       width: 20%;
-      
-      &_btn {
-        border: none;
-        background-color: $primary-color;
-        border-radius: 5px;
-        height: 100%;
-        width: 60%;
-        font-weight: bold;
-        color: white;
-        
-      }
+      height: 100%;
+      justify-content: center;
+      align-items: center;
     }
-    &_select {
-      display: flex;
-      padding: 5px 0 10px 0;
-      width: 90%;
-      margin: 0 auto;
-    }
-    
   }
+  
+  &_btn {
+    margin-left: 20px;
+    height: 50%;
+    width: 40%;
+    border: none;
+    background-color: $primary-color;
+    color: white;
+    border-radius: 4px;
+  }
+
 }
