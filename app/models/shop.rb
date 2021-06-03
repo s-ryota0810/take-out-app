@@ -6,6 +6,7 @@ class Shop < ApplicationRecord
   has_many :favorites, dependent: :destroy
   geocoded_by :address
   after_validation :geocode
+  belongs_to :genre
 
   def shop_image
     if self.images.attached?
