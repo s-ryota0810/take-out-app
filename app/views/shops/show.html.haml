@@ -1,4 +1,4 @@
-.shop
+.shop#shop_show{ data: { shop_id: @shop.id } }
   .shop_detail
     .shop_detail_main
       - if user_signed_in? && current_user.admin?
@@ -9,12 +9,10 @@
       - elsif user_signed_in?
         .shop_detail_main_edit
           .favorite
-            - if current_user.has_favorited?(@shop)
-              .with_favorited
-                = link_to 'お気に入り解除', shop_favorites_path(@shop), method: :delete
-            -else
-              .non_favorited
-                = link_to 'お気に入り登録', shop_favorites_path(@shop), method: :post
+            .with_favorited.hidden
+              お気に入り解除
+            .non_favorited.hidden
+              お気に入り登録
       .shop_detail_name
         %h1= @shop.name
       .shop_detail_image
@@ -101,3 +99,4 @@
           - if user_signed_in?
             .new_comment
               = link_to 'クチコミの追加', new_shop_comment_path(@shop)
+= javascript_pack_tag 'shop'

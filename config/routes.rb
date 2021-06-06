@@ -14,13 +14,13 @@ Rails.application.routes.draw do
   resources :shops do
     resources :menus
     resources :comments
-    resource :favorites, only: [:create, :destroy]
+    resource :favorites, only: [:show, :create, :destroy]
     collection do
       get 'search'
     end
   end
   
   scope '/' do
-    resource :favorites, only: [:show]
+    resources :favorites, only: [:index]
   end
 end
