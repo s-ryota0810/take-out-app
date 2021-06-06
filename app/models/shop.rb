@@ -17,4 +17,24 @@ class Shop < ApplicationRecord
     end
   end
   
+  def weekday_opening
+    if self.weekday_opentime && self.weekday_closetime
+      open = self.weekday_opentime.strftime("%H:%M")
+      close = self.weekday_closetime.strftime("%H:%M")
+      return "#{open} ~ #{close}"
+    else
+      return "不明"
+    end
+  end
+
+  def weekend_opening
+    if self.weekend_opentime && self.weekend_closetime
+      open = self.weekend_opentime.strftime("%H:%M")
+      close = self.weekend_closetime.strftime("%H:%M")
+      return "#{open} ~ #{close}"
+    else
+      return "不明"
+    end
+  end
+
 end
