@@ -8,6 +8,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import $ from 'jquery'
+import axios from 'axios'
 
 require('packs/raty')
 
@@ -17,8 +18,13 @@ ActiveStorage.start()
 window.$ = window.jQuery = require('jquery');
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("wwwwwww")
   $('.shop_detail_name').on('click', () => {  
-    window.alert('clicked')
+    axios.get('/')
+      .then((response) => {
+        window.alert("success")
+        console.log(response)
+      })
   })
+  
+  
 })
