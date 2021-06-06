@@ -7,9 +7,17 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import $ from 'jquery'
+
 require('packs/raty')
 
 Rails.start()
 ActiveStorage.start()
 
 window.$ = window.jQuery = require('jquery');
+
+document.addEventListener("DOMContentLoaded", () => {
+  $('.shop_detail_name').on('click', () => {
+    window.alert('clicked')
+  })
+})
