@@ -17,7 +17,8 @@ ActiveStorage.start()
 window.$ = window.jQuery = require('jquery');
 
 document.addEventListener("DOMContentLoaded", () => {
-  $('.shop_detail_name').on('click', () => {
+  console.log("wwwwwww")
+  $('.shop_detail_name').on('click', () => {  
     window.alert('clicked')
   })
 })
