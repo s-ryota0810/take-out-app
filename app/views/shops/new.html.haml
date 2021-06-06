@@ -19,5 +19,17 @@
     = f.label :area
     %br/
     = f.collection_select :area_id, @areas, :id, :name
+  .new_bussiness_time
+    = f.label :weekday_opentime, '開店時間（平日）'
+    = f.time_field :weekday_opentime
+    %br/
+    = f.label :weekday_closetime, '閉店時間（平日）'
+    = f.time_field :weekday_closetime
+    %br/
+    = f.label :weekend_opentime, '開店時間（土日祝）'
+    = f.time_field :weekend_opentime
+    %br/
+    = f.label :weekday_closetime, '閉店時間（土日祝）'
+    = f.time_field :weekend_closetime
   .new_submit
     = f.submit '登録'
