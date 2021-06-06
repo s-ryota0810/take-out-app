@@ -3,12 +3,15 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-import Rails from "@rails/ujs"
+import Rails from '@rails/ujs'
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import $ from 'jquery'
 import axios from 'axios'
+import { csrfToken } from '@rails/ujs'
+
+axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 
 require('packs/raty')
 
@@ -35,5 +38,28 @@ document.addEventListener("DOMContentLoaded", () => {
       handleFavoriteDisplay(hasFavorited)
     })
   
+  $('.non_favorited').on('click', () =>{
+    axios.post(`/shops/${shopId}/favorites`)
+      .then((response) => {
+        console.log(response)
+      })
+      
+      .catch((error) => {
+        window.alert('Error')
+        console.log(error)
+      })
+  })
+  
+  $('.with_favorited').on('click', () =>{
+    axios.delete(`/shops/${shopId}/favorites`)
+      .then((response) => {
+        console.log(response)
+      })
+      
+      .catch((error) => {
+        window.alert('Error')
+        console.log(error)
+      })
+  })
 
 })
