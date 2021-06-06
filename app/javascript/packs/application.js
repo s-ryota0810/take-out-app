@@ -17,18 +17,20 @@ ActiveStorage.start()
 
 window.$ = window.jQuery = require('jquery');
 
+const handleFavoriteDisplay = (hasFavorited) => {
+  if (hasFavorited) {
+    $('.with_favorited').removeClass('hidden')
+  } else {
+    $('.non_favorited').removeClass('hidden')
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const dataset = $('#shop_show').data()
   const shopId = dataset.shopId
   axios.get(`/shops/${shopId}/favorites`)
     .then((response) => {
       const hasFavorited = response.data
-      if (hasFavorited) {
-        $('.with_favorited').removeClass('hidden')
-      } else {
-        $('.non_favorited').removeClass('hidden')
-      }
+      handleFavoriteDisplay(hasFavorited)
     })
-
-  
 })
