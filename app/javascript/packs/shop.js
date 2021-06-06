@@ -1,9 +1,11 @@
 import $ from 'jquery'
 import axios from 'axios'
 import { csrfToken } from '@rails/ujs'
+require('packs/raty')
 
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 
+window.$ = window.jQuery = require('jquery');
 
 
 const handleFavoriteDisplay = (hasFavorited) => {
@@ -17,7 +19,37 @@ const handleFavoriteDisplay = (hasFavorited) => {
 document.addEventListener("DOMContentLoaded", () => {
   const dataset = $('#shop_show').data()
   const shopId = dataset.shopId
-  
+  axios.get(`/shops/${shopId}/comments`)
+    .then((response) => {
+      const comments = response.data
+      comments.forEach((comment) => {        
+        $(".comments_container").append(
+          `<div class="show_comment">
+          <div class="show_comment_info">
+          <div class="show_comment_title">
+          <span>${comment.title}</span></div>
+          <div class="show_comment_user">
+          <span>${comment.user.display_name}</span></div>
+          </div>
+          <div class="show_comment_content">
+          <span>${comment.content}</span></div>
+          <div class="show_comment_star">
+          <div id="star-rate${comment.id}"></div>
+          </div></div>`
+        )
+        $(`#star-rate${comment.id}`).raty({
+          size: 36,
+          starOff: '/assets/star-off.png',
+          starOn : '/assets/star-on.png',
+          starHalf: '/assets/star-half.png',
+          score: comment.star,
+          half: true,
+          readOnly: true,
+        });
+
+      })
+    })
+    
   axios.get(`/shops/${shopId}/favorites`)
     .then((response) => {
       const hasFavorited = response.data.hasFavorited

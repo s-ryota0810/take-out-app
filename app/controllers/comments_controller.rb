@@ -5,6 +5,12 @@ class CommentsController < ApplicationController
     @shop = Shop.find(params[:shop_id])
     @comment = current_user.comments.build
   end
+  
+  def index
+    shop = Shop.find(params[:shop_id])
+    comments = shop.comments
+    render json: comments
+  end
 
   def create
     @comment = current_user.comments.create(comment_params)
