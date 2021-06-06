@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_03_122533) do
+ActiveRecord::Schema.define(version: 2021_06_06_023738) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -91,6 +91,10 @@ ActiveRecord::Schema.define(version: 2021_06_03_122533) do
     t.float "longitude"
     t.bigint "genre_id"
     t.bigint "area_id"
+    t.time "weekday_opentime"
+    t.time "weekday_closetime"
+    t.time "weekend_opentime"
+    t.time "weekend_closetime"
     t.index ["area_id"], name: "index_shops_on_area_id"
     t.index ["genre_id"], name: "index_shops_on_genre_id"
   end
