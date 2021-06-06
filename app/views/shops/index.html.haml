@@ -16,7 +16,8 @@
                 %dd= shop.address
               .shop_info_worktime.clearfix
                 %dt 営業時間
-                %dd 10:00〜22:00
+                %dd= "平日#{shop.weekday_opentime}~#{shop.weekday_closetime}"
+                %dd= "休日#{shop.weekend_opentime}~#{shop.weekend_closetime}"
               .shop_info_access.clearfix
                 %dt アクセス
                 %dd 〇〇駅から徒歩5分
