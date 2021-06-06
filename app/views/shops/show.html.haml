@@ -10,9 +10,9 @@
         .shop_detail_main_edit
           .favorite
             .with_favorited.hidden
-              = link_to 'お気に入り解除', shop_favorites_path(@shop), method: :delete
+              お気に入り解除
             .non_favorited.hidden
-              = link_to 'お気に入り登録', shop_favorites_path(@shop), method: :post
+              お気に入り登録
       .shop_detail_name
         %h1= @shop.name
       .shop_detail_image

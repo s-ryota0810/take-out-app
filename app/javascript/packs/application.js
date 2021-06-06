@@ -28,9 +28,12 @@ const handleFavoriteDisplay = (hasFavorited) => {
 document.addEventListener("DOMContentLoaded", () => {
   const dataset = $('#shop_show').data()
   const shopId = dataset.shopId
+  
   axios.get(`/shops/${shopId}/favorites`)
     .then((response) => {
-      const hasFavorited = response.data
+      const hasFavorited = response.data.hasFavorited
       handleFavoriteDisplay(hasFavorited)
     })
+  
+
 })

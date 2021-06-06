@@ -9,17 +9,16 @@ class FavoritesController < ApplicationController
   end
   
   def create
-    @favorite = current_user.favorites.build
-    @favorite.shop_id = params[:shop_id]
-    @favorite.save!
-    redirect_to @favorite.shop
+    shop = Shop.find(params[:shop_id])
+    shop.favorites.create!(user_id: current_user.id)
+    render json: { status: 'ok' }
   end
   
   def destroy
-    @shop = Shop.find(params[:shop_id])
-    @favorite = @shop.favorites.find_by(user_id: current_user.id)
-    @favorite.destroy!
-    redirect_to @shop
+    shop = Shop.find(params[:shop_id])
+    favorite = shop.favorites.find_by(user_id: current_user.id)
+    favorite.destroy!
+    render json: { status: 'ok' }
   end
   
   def index
