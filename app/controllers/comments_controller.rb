@@ -1,11 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
 
-  def new
-    @shop = Shop.find(params[:shop_id])
-    @comment = current_user.comments.build
-    render json: @comment
-  end
   
   def index
     shop = Shop.find(params[:shop_id])
