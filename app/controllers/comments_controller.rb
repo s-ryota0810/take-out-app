@@ -1,19 +1,17 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
 
-  def new
-    @shop = Shop.find(params[:shop_id])
-    @comment = current_user.comments.build
+  
+  def index
+    shop = Shop.find(params[:shop_id])
+    comments = shop.comments
+    render json: comments
   end
 
   def create
-    @comment = current_user.comments.create(comment_params)
-    if @comment.save
-      redirect_to shop_path(@comment.shop), notice: 'コメントを投稿しました'
-    else
-      flash.now[:error] = '投稿できませんでした'
-      render :new
-    end
+    @comment = current_user.comments.build(comment_params)
+    @comment.save!
+    render json: @comment
   end
 
   private

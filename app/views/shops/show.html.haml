@@ -75,28 +75,31 @@
             }
         .shop_detail_description_el
           %h2 クチコミ一覧
-          - @comments.each do |comment|
-            .show_comment
-              .show_comment_info
-                .show_comment_title
-                  = comment.title
-                .show_comment_user
-                  = comment.user.display_name
-              .show_comment_content
-                = comment.content
-              .show_comment_star
-                %div{:id => "star-rate#{comment.id}"}
-                :javascript
-                  $('#star-rate#{comment.id}').raty({
-                    size :36,
-                    starOff :'#{asset_path("star-off.png")}',
-                    starOn  :'#{asset_path("star-on.png")}',
-                    starHalf:'#{asset_path("star-half.png")}',
-                    score   : '#{comment.star}',
-                    half    : true,
-                    readOnly: true,
-                  });
+          .comments_container
           - if user_signed_in?
-            .new_comment
-              = link_to 'クチコミの追加', new_shop_comment_path(@shop)
+            .new_comment.modal_open
+              %span クチコミの追加
+            .modal_overlay.modal_close
+            .modal_window
+              .comment_title
+                %p タイトル
+                = text_area_tag :comment_title, '', class: 'add_comment_form comment_title_form'
+              .comment_content
+                %p 内容
+                = text_area_tag :comment_content, '', class: 'add_comment_form comment_content_form'
+              #star.comment_star
+                %p 評価
+                = hidden_field_tag :comment_star, id: 'comment_star'
+              :javascript
+                $('#star').raty({
+                  size     : 42,
+                  starOff:  '#{asset_path("star-off.png")}',
+                  starOn : '#{asset_path("star-on.png")}',
+                  starHalf: '#{asset_path("star-half.png")}',
+                  scoreName: 'comment[star]',
+                  half: true,
+                });
+              .comment_btn
+                %button.comment_btn_submit 投稿
+                %button.comment_btn_cancel.modal_close キャンセル
 = javascript_pack_tag 'shop'

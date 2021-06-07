@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :shops do
     resources :menus
-    resources :comments
+    resources :comments, only: [:create, :index]
     resource :favorites, only: [:show, :create, :destroy]
     collection do
       get 'search'
