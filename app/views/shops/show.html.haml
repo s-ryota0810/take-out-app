@@ -77,6 +77,24 @@
           %h2 クチコミ一覧
           .comments_container
           - if user_signed_in?
-            .new_comment
-              = link_to 'クチコミの追加', new_shop_comment_path(@shop)
+            .new_comment.modal_open
+              %span クチコミの追加
+            .modal_overlay.modal_close
+            .modal_window
+              = text_area_tag :comment_title, '', class: 'new_comment_form'
+              = text_area_tag :comment_content, '', class: 'new_comment_form'
+              #star
+                = hidden_field_tag :comment_star, id: 'comment_star'
+              :javascript
+                $('#star').raty({
+                  size     : 42,
+                  starOff:  '#{asset_path("star-off.png")}',
+                  starOn : '#{asset_path("star-on.png")}',
+                  starHalf: '#{asset_path("star-half.png")}',
+                  scoreName: 'comment[star]',
+                  half: true,
+                });
+              %button.comment_btn_submit 投稿
+              %button.comment_btn_cancel.modal_close キャンセル
 = javascript_pack_tag 'shop'
+= javascript_pack_tag 'comment'

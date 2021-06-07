@@ -19,6 +19,7 @@ const handleFavoriteDisplay = (hasFavorited) => {
 document.addEventListener("DOMContentLoaded", () => {
   const dataset = $('#shop_show').data()
   const shopId = dataset.shopId
+  
   axios.get(`/shops/${shopId}/comments`)
     .then((response) => {
       const comments = response.data
@@ -45,8 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
           score: comment.star,
           half: true,
           readOnly: true,
-        });
-
+        });      
       })
     })
     
@@ -86,6 +86,58 @@ document.addEventListener("DOMContentLoaded", () => {
       })
   })
   
+  $('.modal_open').on('click', () => {
+    $('.modal_overlay, .modal_window').fadeIn();
+  })
+  
+  $('.modal_close').on('click', () => {
+    $('.modal_overlay, .modal_window').fadeOut();
+    
+  })
+
+
+  $('.comment_btn_submit').on('click', () => {
+    const title = $('#comment_title').val()
+    const content = $('#comment_content').val()
+    const star = $('#star input:last').val()
+    
+    if (!title) {
+      window.alert('タイトルを入力してください')
+    } else if (!content) {
+      window.alert('内容を入力してください');
+    } else {
+      axios.post(`/shops/${shopId}/comments`, {
+        comment: {
+          title: title,
+          content: content,
+          star: star,
+        }
+      })
+        .then((response) => {
+          const comment = response.data
+          
+          $('.comment_container').append(
+            `<div class="show_comment">
+            <div class="show_comment_info">
+            <div class="show_comment_title">
+            <span>${comment.title}</span></div>
+            <div class="show_comment_user">
+            ${comment.user.name}</div>
+            </div>
+            <div class="show_comment_content">
+            <span>${comment.content}</span></div>
+            <div class="show_comment_star">
+            <div id="star-rate${comment.id}"></div>
+            </div></div>`
+          )
+          location.reload()
+        })
+        .catch((error) => {
+          window.alert(error)
+        })
+    }
+  })
+
 
 
 })

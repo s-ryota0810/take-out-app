@@ -32,3 +32,25 @@
 
 }
 
+.new_comment {
+  width: 30%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 5px 10px;
+  background-color: $primary-color;
+  border-radius: 8px;
+  
+  span {
+    color: white;
+  }
+  
+  &_form {
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px;
+    border: none;
+    background-color: #dfdddd;
+    border-radius: 5px;
+  }
+}
+
