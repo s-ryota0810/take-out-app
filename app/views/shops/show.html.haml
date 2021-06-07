@@ -81,9 +81,14 @@
               %span クチコミの追加
             .modal_overlay.modal_close
             .modal_window
-              = text_area_tag :comment_title, '', class: 'new_comment_form'
-              = text_area_tag :comment_content, '', class: 'new_comment_form'
-              #star
+              .comment_title
+                %p タイトル
+                = text_area_tag :comment_title, '', class: 'add_comment_form comment_title_form'
+              .comment_content
+                %p 内容
+                = text_area_tag :comment_content, '', class: 'add_comment_form comment_content_form'
+              #star.comment_star
+                %p 評価
                 = hidden_field_tag :comment_star, id: 'comment_star'
               :javascript
                 $('#star').raty({
@@ -94,6 +99,7 @@
                   scoreName: 'comment[star]',
                   half: true,
                 });
-              %button.comment_btn_submit 投稿
-              %button.comment_btn_cancel.modal_close キャンセル
+              .comment_btn
+                %button.comment_btn_submit 投稿
+                %button.comment_btn_cancel.modal_close キャンセル
 = javascript_pack_tag 'shop'
