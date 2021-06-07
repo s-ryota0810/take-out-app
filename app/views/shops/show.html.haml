@@ -21,85 +21,14 @@
         %p 星4つ
     .shop_detail_sub
       .shop_detail_sub_menu
-        .shop_detail_sub_menu_el
-          = link_to 'メニュー', '#'
-        .shop_detail_sub_menu_el
-          = link_to 'アクセス', '#'
-        .shop_detail_sub_menu_el
-          = link_to '口コミ', '#'
+        #shop_menus.shop_detail_sub_menu_el
+          %p メニュー
+        #shop_access.shop_detail_sub_menu_el
+          %p アクセス
+        #shop_comments.shop_detail_sub_menu_el
+          %p クチコミ
       .shop_detail_description
-        .shop_detail_description_el
-          %h2 メニュー一覧
-          - @menus.each do |menu|
-            .show_menu
-              %dl.show_menu_info.clearfix
-                %dt.menu_name= menu.name
-                %dd.menu_price¥#{menu.price}
-                - if user_signed_in? && current_user.admin?
-                  .edit_menus
-                    = link_to '編集', edit_shop_menu_path(@shop)
-                    = link_to '削除', shop_menu_path(@shop, menu), data: { method: 'delete', confirm: 'メニュー情報を削除しますか'}
-          - if user_signed_in? && current_user.admin?
-            .new_menus
-              = link_to 'メニューの追加', new_shop_menu_path(@shop)
-        .shop_detail_description_el
-          %h2 アクセス
-          .show_access
-            .show_access_map
-              #map
-              - google_api = "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAP_API']}&callback=initMap".html_safe
-              %script{:async => "", :src=> google_api}
-              = @shop.address
-            .show_access_info
-          
-          :javascript
-            let map;
-            function initMap(){
-              geocoder = new google.maps.Geocoder()
-              
-              map = new google.maps.Map(document.getElementById('map'), {
-                center: {
-                  lat: gon.shop.latitude,
-                  lng: gon.shop.longitude
-                },
-                zoom: 15,
-              });
-              
-              marker = new google.maps.Marker({
-                position: {
-                  lat: gon.shop.latitude,
-                  lng: gon.shop.longitude
-                },
-                map: map
-              });
-            }
-        .shop_detail_description_el
-          %h2 クチコミ一覧
-          .comments_container
-          - if user_signed_in?
-            .new_comment.modal_open
-              %span クチコミの追加
-            .modal_overlay.modal_close
-            .modal_window
-              .comment_title
-                %p タイトル
-                = text_area_tag :comment_title, '', class: 'add_comment_form comment_title_form'
-              .comment_content
-                %p 内容
-                = text_area_tag :comment_content, '', class: 'add_comment_form comment_content_form'
-              #star.comment_star
-                %p 評価
-                = hidden_field_tag :comment_star, id: 'comment_star'
-              :javascript
-                $('#star').raty({
-                  size     : 42,
-                  starOff:  '#{asset_path("star-off.png")}',
-                  starOn : '#{asset_path("star-on.png")}',
-                  starHalf: '#{asset_path("star-half.png")}',
-                  scoreName: 'comment[star]',
-                  half: true,
-                });
-              .comment_btn
-                %button.comment_btn_submit 投稿
-                %button.comment_btn_cancel.modal_close キャンセル
+        = render 'shops/menu'
+        = render 'shops/access'
+        = render 'shops/comment'
 = javascript_pack_tag 'shop'

@@ -1,0 +1,30 @@
+#shop_comments_area.shop_detail_description_el.hidden
+  %h2 クチコミ一覧
+  .comments_container
+    .modal_overlay.modal_close
+    .modal_window
+      .comment_title
+        %p タイトル
+        = text_area_tag :comment_title, '', class: 'add_comment_form comment_title_form'
+      .comment_content
+        %p 内容
+        = text_area_tag :comment_content, '', class: 'add_comment_form comment_content_form'
+      #star.comment_star
+        %p 評価
+        = hidden_field_tag :comment_star, id: 'comment_star'
+      :javascript
+        $('#star').raty({
+          size     : 42,
+          starOff:  '#{asset_path("star-off.png")}',
+          starOn : '#{asset_path("star-on.png")}',
+          starHalf: '#{asset_path("star-half.png")}',
+          scoreName: 'comment[star]',
+          half: true,
+        });
+      .comment_btn
+        %button.comment_btn_submit 投稿
+        %button.comment_btn_cancel.modal_close キャンセル
+  - if user_signed_in?
+    .new_comment.modal_open
+      %span クチコミの追加
+

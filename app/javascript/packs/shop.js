@@ -138,6 +138,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
 
+  
+  $('#shop_access').on('click', () => {
+    $('#shop_menus_area').addClass('hidden')
+    $('#shop_comments_area').addClass('hidden')
+    $('#shop_access_area').removeClass('hidden')
+  })
 
+  $('#shop_menus').on('click', () => {
+    $('#shop_comments_area').addClass('hidden')
+    $('#shop_access_area').addClass('hidden')
+    $('#shop_menus_area').removeClass('hidden')
+  })
+
+  $('#shop_comments').on('click', () => {
+    $('#shop_access_area').addClass('hidden')
+    $('#shop_menus_area').addClass('hidden')
+    $('#shop_comments_area').removeClass('hidden')
+  })
 
 })
