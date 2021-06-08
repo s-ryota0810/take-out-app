@@ -35,7 +35,6 @@ class ShopsController < ApplicationController
 
   def update
     @shop.assign_attributes(shop_params)
-    binding.pry
     if @shop.save
       redirect_to @shop, notice: '店舗情報を更新しました'
     else
@@ -69,7 +68,7 @@ class ShopsController < ApplicationController
   end
 
   def shop_params
-    params.require(:shop).permit(:name, :address, :area_id, :genre_id, :weekday_opentime, :weekday_closetime, :weekend_opentime, :weekend_closetime, :images, [] )
+    params.require(:shop).permit(:name, :address, :area_id, :genre_id, :weekday_opentime, :weekday_closetime, :weekend_opentime, :weekend_closetime, images: [] )
   end
 
   def authenticate_admin

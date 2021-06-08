@@ -156,5 +156,20 @@ document.addEventListener("DOMContentLoaded", () => {
     $('#shop_menus_area').addClass('hidden')
     $('#shop_comments_area').removeClass('hidden')
   })
-
+  
+  let images = $('#images')
+  let lists = $('#images li')
+  let listsCount = lists.length
+  let listsWidth = lists.width() + parseInt(lists.css('margin-left'), 10) + parseInt(lists.css('margin-right'), 10)
+  
+  images.css('width', (listsWidth * listsCount) + 'px')
+  
+  setInterval(() => {
+    images.stop().animate({
+      marginLeft: parseInt(images.css('margin-left'),10) - listsWidth + 'px' 
+    }, () => {
+      images.css('margin-left', '0px')
+      images.find('li:first').appendTo(images)
+    })
+  }, 3000)
 })

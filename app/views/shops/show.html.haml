@@ -16,7 +16,13 @@
       .shop_detail_name
         %h1= @shop.name
       .shop_detail_image
-        = image_tag @shop.shop_image
+        #slider
+          %ul#images
+            - if @shop.images.attached?
+              - @shop.images.each do |image| 
+                %li= image_tag image
+            - else
+              = image_tag 'no-images.jpeg'
       #star_average.shop_detail_review
         %p= "口コミ（#{@shop.comments.count}件）"
       :javascript
