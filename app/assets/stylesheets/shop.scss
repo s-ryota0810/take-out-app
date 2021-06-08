@@ -108,6 +108,8 @@
     
     &_image {
       text-align: center;
+      height: calc(600px * 0.6640);
+      margin: 20px 0;
     }
     
     &_review {
@@ -218,4 +220,7 @@
   }
 }
 
-
+.no-image {
+  width: 70%;
+  height: 100%;
+}

@@ -157,19 +157,24 @@ document.addEventListener("DOMContentLoaded", () => {
     $('#shop_comments_area').removeClass('hidden')
   })
   
-  let images = $('#images')
-  let lists = $('#images li')
-  let listsCount = lists.length
-  let listsWidth = lists.width() + parseInt(lists.css('margin-left'), 10) + parseInt(lists.css('margin-right'), 10)
+  let counter = 0
+  let sliderWidth = $('.slider-wrapper').innerWidth()
+  let listCount = $('.slider-item').length
+
+  $('.slider').css('width', `calc(100% * ${listCount})`)
+  $('.slider-item').css('width', `calc( 100% / ${listCount})`)
   
-  images.css('width', (listsWidth * listsCount) + 'px')
+  $('.prev-btn').on('click', () => {
+    if (counter > 0) {
+      counter--
+      $('.slider').css('margin-left', (-1) * counter * sliderWidth)
+    }
+  })
   
-  setInterval(() => {
-    images.stop().animate({
-      marginLeft: parseInt(images.css('margin-left'),10) - listsWidth + 'px' 
-    }, () => {
-      images.css('margin-left', '0px')
-      images.find('li:first').appendTo(images)
-    })
-  }, 3000)
+  $('.next-btn').on('click', () => {
+    if (counter < (listCount - 1)) {
+      counter++
+      $('.slider').css('margin-left', (-1) * counter * sliderWidth)
+    }
+  })
 })
