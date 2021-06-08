@@ -17,8 +17,19 @@
         %h1= @shop.name
       .shop_detail_image
         = image_tag @shop.shop_image
-      .shop_detail_review
-        %p 星4つ
+      #star_average.shop_detail_review
+        %p= "口コミ（#{@shop.comments.count}件）"
+      :javascript
+        $('#star_average').raty({
+          size     : 42,
+          starOff:  '#{asset_path("star-off.png")}',
+          starOn : '#{asset_path("star-on.png")}',
+          starHalf: '#{asset_path("star-half.png")}',
+          score: '#{@shop.comments.average(:star).to_f.round(1)}',
+          readOnly: true,
+          half: true,
+        });
+
     .shop_detail_sub
       .shop_detail_sub_menu
         #shop_menus.shop_detail_sub_menu_el
