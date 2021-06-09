@@ -13,7 +13,15 @@
     = favicon_link_tag(source='favicon.ico')
   %body
     = render 'layouts/header'
-    .container
-      - if flash.present?
-        = render 'layouts/notice'
-      = yield
+    - if current_page?(root_path)
+      = render 'layouts/top'
+      .container_top
+        - if flash.present?
+          = render 'layouts/notice'
+        = yield
+
+    - else
+      .container
+        - if flash.present?
+          = render 'layouts/notice'
+        = yield

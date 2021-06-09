@@ -2,7 +2,7 @@
   .new_image
     = f.label :images, '店舗画像'
     %br/
-    = f.file_field :images
+    = f.file_field :images, multiple: true
   .new_name
     = f.label :name
     %br/

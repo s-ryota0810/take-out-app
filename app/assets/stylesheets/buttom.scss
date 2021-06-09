@@ -1,3 +1,5 @@
+@import 'variable';
+
 .btn {
   padding: 16px;
   text-align: center;
@@ -14,5 +16,17 @@
   
   &_submit {
     background-color: #FFAD90;
+  }
+  
+  &_reverse {
+    padding: 10px 20px;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    border-radius: 5px;
+  }
+  
+  &_reverse:hover {
+    background-color: white;
+    color: $primary-color !important;
   }
 }

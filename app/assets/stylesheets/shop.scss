@@ -107,15 +107,9 @@
     }
     
     &_image {
-      height: 360px;
-      width: 360px;
-      padding: 14px;
-      margin: 0 auto;
-      
-      img {
-        height: 100%;
-        width: 100%;
-      }
+      text-align: center;
+      height: calc(600px * 0.6640);
+      margin: 20px 0;
     }
     
     &_review {
@@ -193,4 +187,40 @@
 
 .fa-color {
   color: $primary-color;
+}
+
+#slider {
+  overflow: hidden;
+  width: 410px;
+  border: 1px solid #000;
+  margin: 10px auto;
+  padding: 0px;
+}
+
+#images {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  
+  li {
+    display: inline-box;
+    float: left;
+    width: 400px;
+    height: 400px;
+    margin: 5px;
+    padding: 0;
+    
+    img {
+      width: 400px;
+      height: 400px;      
+      border: 1px solid #000;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+.no-image {
+  width: 70%;
+  height: 100%;
 }

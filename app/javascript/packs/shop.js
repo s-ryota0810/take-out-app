@@ -156,5 +156,25 @@ document.addEventListener("DOMContentLoaded", () => {
     $('#shop_menus_area').addClass('hidden')
     $('#shop_comments_area').removeClass('hidden')
   })
+  
+  let counter = 0
+  let sliderWidth = $('.slider-wrapper').innerWidth()
+  let listCount = $('.slider-item').length
 
+  $('.slider').css('width', `calc(100% * ${listCount})`)
+  $('.slider-item').css('width', `calc( 100% / ${listCount})`)
+  
+  $('.prev-btn').on('click', () => {
+    if (counter > 0) {
+      counter--
+      $('.slider').css('margin-left', (-1) * counter * sliderWidth)
+    }
+  })
+  
+  $('.next-btn').on('click', () => {
+    if (counter < (listCount - 1)) {
+      counter++
+      $('.slider').css('margin-left', (-1) * counter * sliderWidth)
+    }
+  })
 })
