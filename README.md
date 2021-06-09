@@ -1,24 +1,50 @@
-# README
+# 概要
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+テイクアウト可能な飲食店の情報をまとめたサービスになります。位置情報・検索機能を利用することで、
+その日の予定に合わせて自由にお店を検索できるサービスとして作成しました。
+また、クチコミ、評価機能を実装し情報の信頼性を高めることを意識しました。
 
-Things you may want to cover:
+# 使用技術
+### フロントエンド
+- HTML/CSS
+- Javascript
+- jQuery　<br>
+### バックエンド
+- Ruby: 2.6.5
+- Rails: 6.1.3
+- MySQL: 8.0
+### テスト・ツール
+- Rspec
+- Rubocop
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 機能一覧
+- ユーザーに関する機能（Userモデル）　<br>
+  ユーザー登録、ログイン、ログアウト　（devise）　<br>
+  簡単ログイン機能　<br>
+  管理者権限
+- 店舗情報に関する機能（Shopモデル）　<br>
+  店舗情報表示・登録・編集・削除機能　<br>
+　  ※登録・編集・削除機能は管理者権限のみ
+- メニュー情報に関する機能（Menuモデル）　<br>
+  メニュー情報の表示・登録・編集・削除機能　<br>
+  　※登録・編集・削除機能は管理者権限のみ
+- クチコミに関する機能（Commentモデル）　<br>
+  クチコミの表示・投稿機能　<br>
+  星型評価機能　（raty）　<br>
+  　※投稿はログインユーザーのみ
+- お気に入りに関する機能（Favoriteモデル）　<br>
+  お気に入り店舗表示・登録・削除機能　<br>
+  　※ログインユーザーのみ
+- 外部APIについて　<br>
+  Google Map API　<br>
+　  ※店舗の位置情報を取得
+- その他
+1.非同期処理（ajax）　<br>
+　お気に入り登録・削除機能　<br>
+2.検索機能　（ransack）　<br>
+  店舗情報をフリーワード、エリア、ジャンルで検索できる機能　<br>
+  　※外部モデル（Area、Genre）とのアソシエーション　<br>
+3.フロントエンド（jQuery）　<br>
+  画像の自動スライド機能　（トップページ）　<br>
+  カルーセルスライダー　（店舗詳細画面）　<br>
+  モーダルウィンドウ　（クチコミ投稿画面）　<br>
