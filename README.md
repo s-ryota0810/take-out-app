@@ -38,7 +38,7 @@
 - 外部APIについて　<br>
   Google Map API　<br>
 　  ※店舗の位置情報を取得
-- その他
+- その他　<br>
 1.非同期処理（ajax）　<br>
 　お気に入り登録・削除機能　<br>
 2.検索機能　（ransack）　<br>
