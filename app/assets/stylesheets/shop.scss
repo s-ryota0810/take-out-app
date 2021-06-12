@@ -232,7 +232,7 @@
 @media screen and (max-width: 480px) {
   .shop {
     width: 100%;
-    padding: 15px;
+    padding: 0;
     box-sizing: border-box;
     
     &_list {
@@ -242,28 +242,56 @@
       margin-bottom: 20px;
       box-sizing: border-box;
       width: 100%;
-      max-height: 400px;
+      height: 400px;
     }
     
     &_info {
       width: 100%;
+      display: inline;
+      height: 100%;
       
       &_image {
         width: 100%;
+        height: 50%;
         
         img {
           width: 100%;
           height: 100%;
-        }
-        
+        }        
       }
+      
+      &_name, &_address, &_worktime, &_access, &_review {
+        height: 20%;
+        border-bottom: 1px solid $border-color;
+        margin-bottom: 2px;
+        height: 30px;
+        min-height: 10px;
+        font-size: 14px;
+      }
+      
+      
+      
+      &_worktime dd, &_address dd {
+        font-size: 10px;
+      }
+      
+      &_review dd img{
+        height: 18px;
+        width: 18px;
+        vertical-align: middle;
+      }
+
       
       &_description {
         width: 100%;
-        display: block;
+        height: 50%;
         
         dl {
           box-sizing: border-box;
+          width: 100%;
+          height: 100%;
+          margin: 0;
+          padding: 10px;
         
           dt dd {
             padding: 1em;
@@ -273,16 +301,18 @@
           dt {
             float: left;
             width: 30%;
-            font-size: 20px;
+            font-size: 14px;
             font-weight: bold;
             color: $primary-color;
-            line-height: 2;
+            height: 30px;
+            line-height: 30px;
           }
           
           dd {
             margin-left: 30%;
             width: 70%;
-            line-height: 2.5;
+            height: 30px;
+            line-height: 30px;
             color: black;
           }
         }
