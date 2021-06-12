@@ -1,19 +1,20 @@
 #shop_menus_area.shop_detail_description_el
   %h2 メニュー一覧
-  .show_menu
-    - @menus.each do |menu|
-      .show_menu_info
-        .show_menu_info_image
-          = image_tag menu.image
-        .show_menu_info_text
-          .show_menu_info_text_name
-            %p= menu.name
-          .show_menu_info_text_price
-            %p= "¥ #{menu.price}"
-          - if user_signed_in? && current_user.admin?
-            .edit_menus
-              = link_to '編集', edit_shop_menu_path(@shop)
-              = link_to '削除', shop_menu_path(@shop, menu), data: { method: 'delete', confirm: 'メニュー情報を削除しますか'}
+  .menu_container
+    .show_menu
+      - @menus.each do |menu|
+        .show_menu_info
+          .show_menu_info_image
+            = image_tag menu.image
+          .show_menu_info_text
+            .show_menu_info_text_name
+              %p= menu.name
+            .show_menu_info_text_price
+              %p= "¥ #{menu.price}"
+            - if user_signed_in? && current_user.admin?
+              .edit_menus
+                = link_to '編集', edit_shop_menu_path(@shop)
+                = link_to '削除', shop_menu_path(@shop, menu), data: { method: 'delete', confirm: 'メニュー情報を削除しますか'}
   - if user_signed_in? && current_user.admin?
     .new_menus
       = link_to 'メニューの追加', new_shop_menu_path(@shop)
