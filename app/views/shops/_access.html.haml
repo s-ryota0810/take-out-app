@@ -10,6 +10,7 @@
 
   :javascript
     let map;
+    
     function initMap(){
       geocoder = new google.maps.Geocoder()
       
@@ -18,7 +19,7 @@
           lat: gon.shop.latitude,
           lng: gon.shop.longitude
         },
-        zoom: 15,
+        zoom: 14,
       });
       
       marker = new google.maps.Marker({

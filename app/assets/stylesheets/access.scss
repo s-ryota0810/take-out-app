@@ -12,3 +12,21 @@
     height: 490px;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .show_access {
+    padding: 10px 0;
+    
+    &_map {
+      height: 360px;
+      
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+  
+  #shop_access_area {
+    min-height: 500px;
+  }
+}
