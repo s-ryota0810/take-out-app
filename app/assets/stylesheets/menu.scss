@@ -1,22 +1,85 @@
-.show_menu_info {
-  width: 100%;
-  position: relative;  
+@import 'variable';
+
+.show_menu {
   display: flex;
   flex-wrap: wrap;
+  padding-left: 0.5em;
+  
+  &_info {
+    width: 31%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: $background-color;
+    margin: 5px 0.5em;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    
+    &_image {
+      width: 100%;
+      height: 70%;
+      border: 1px solid $border-color;
+      border-radius: 5px;
+      
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    
+    &_text {
+      width: 100%;
+      height: 30%;
+      text-align: center;
+      position: relative;
+
+      &_name {
+        width: 100%;
+        height: 60%;
+        display: table;
+      }
+      
+      &_name p {
+        display: table-cell;
+        vertical-align: middle;
+        margin: 0;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      &_price {
+        width: 100%;
+        height: 40%;
+        display:table;
+      }
+
+      &_price p {
+        display:table-cell;
+        vertical-align:middle;
+        margin: 0;
+        font-size: 16px;
+      }
+
+    }
+  }
 }
 
-.menu_name {
-  width: 40%;
-  font-size: 18px;
-  margin-left: 8px;
-}
-
-.menu_price {
-  width: 40%;
-  text-align: center;
-}
-
-.edit_menus {
+.edit_menu {
   position: absolute;
-  right: 100px;
+}
+
+@media screen and (max-width: 480px) {
+  .show_menu {
+    display: inline;
+    padding-left: 0;
+    
+    &_info {
+      width: 100%;
+      margin: 0;
+      margin-bottom: 3px;
+    }
+  }
+  
+  .menu_container {
+    overflow: scroll;
+    max-height: 600px;
+  }
 }

@@ -224,3 +224,161 @@
   width: 70%;
   height: 100%;
 }
+
+@media screen and (max-width: 480px) {
+  .shop {
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    
+    &_list {
+      border: 1px solid $border-color;
+      background-color: white;
+      padding: 5px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      width: 100%;
+      height: 400px;
+    }
+    
+    &_info {
+      width: 100%;
+      display: inline;
+      height: 100%;
+      
+      &_image {
+        width: 100%;
+        height: 50%;
+        
+        img {
+          width: 100%;
+          height: 100%;
+        }        
+      }
+      
+      &_name, &_address, &_worktime, &_access, &_review {
+        height: 20%;
+        border-bottom: 1px solid $border-color;
+        margin-bottom: 2px;
+        height: 30px;
+        min-height: 10px;
+        font-size: 14px;
+      }
+      
+      
+      
+      &_worktime dd, &_address dd {
+        font-size: 10px;
+      }
+      
+      &_review dd img{
+        height: 18px;
+        width: 18px;
+        vertical-align: middle;
+      }
+
+      
+      &_description {
+        width: 100%;
+        height: 50%;
+        
+        dl {
+          box-sizing: border-box;
+          width: 100%;
+          height: 100%;
+          margin: 0;
+          padding: 10px;
+        
+          dt dd {
+            padding: 1em;
+            margin: 0px; 
+          }
+          
+          dt {
+            float: left;
+            width: 30%;
+            font-size: 14px;
+            font-weight: bold;
+            color: $primary-color;
+            height: 30px;
+            line-height: 30px;
+          }
+          
+          dd {
+            margin-left: 30%;
+            width: 70%;
+            height: 30px;
+            line-height: 30px;
+            color: black;
+          }
+        }
+      }
+    }
+    
+    &_detail {
+      &_main {
+        height: 320px;
+        
+        &_edit {
+          top: 3px;
+          right: 0;
+          font-size: 10px;
+          font-weight: normal;
+        }
+      }
+      
+      &_name {
+        margin-bottom: 7px;
+        
+        h1 {
+          font-size: 1.2em;
+          margin-block-start: 0.3em;
+          margin-block-end: 0.3em;
+        }
+      }
+      
+      &_image {
+        height: 200px;
+        width: 100%;
+      }
+      
+      &_review {
+        height: 30px;
+        line-height: 30px;
+        
+        p {
+          font-size: 10px;
+          margin-block-start: 0;
+          margin-block-end: 0;
+          height: 30px;
+          line-height: 30px;
+          }
+        
+        img {
+          width: 25px;
+          height: 25px;
+          margin-left: 0;
+          vertical-align: middle;
+        }
+      }
+      
+      &_sub {
+        padding-top: 10px;
+        
+        &_menu_el {
+          padding: 6px 0;
+          
+          p {
+            font-size: 14px;
+          }
+        }
+      }
+      
+      &_description_el h2{
+        padding-bottom: 0.5em;
+        font-size: 1.2em;
+      }
+      
+    }
+  }
+}

@@ -6,6 +6,10 @@
           = link_to root_path do
             = image_tag 'App-logo.png'
     .header_right
+      .burger-btn
+        %span.bar.bar_top
+        %span.bar.bar_mid
+        %span.bar.bar_bottom
       .header_nav
         %ul
           - if user_signed_in?
@@ -16,3 +20,4 @@
             %li= link_to 'ログイン', new_user_session_path, class: 'btn_reverse'
             %li= link_to '新規登録', new_user_registration_path, class: 'btn_reverse'
           %li= link_to '店舗一覧', shops_path, class: 'btn_reverse'
+= javascript_pack_tag 'header'

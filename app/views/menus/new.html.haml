@@ -1,4 +1,7 @@
 = form_with(model: [@shop, @menu], local: true) do |f|
+  .new_image
+    = f.label :image, '画像'
+    = f.file_field  :image
   .new_name
     = f.label :name
     = f.text_field :name
