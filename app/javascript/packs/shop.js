@@ -101,10 +101,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const content = $('#comment_content').val()
     const star = $('#star input:last').val()
     
-    if (!title) {
-      window.alert('タイトルを入力してください')
+    if (title.length < 2) {
+      window.alert('タイトルを２文字以上で入力してください')
+    } else if (title.length > 20){
+      window.alert('タイトルを２０文字以内で入力してください')
     } else if (!content) {
       window.alert('内容を入力してください');
+    } else if (content.length > 300) {
+      window.alert('内容を300文字以上で入力してください')
     } else {
       axios.post(`/shops/${shopId}/comments`, {
         comment: {

@@ -15,7 +15,9 @@
   
   &_title {
     font-size: 24px;
-    height: 36px;
+    min-height: 36px;
+    width: 70%;
+    overflow-wrap:  break-word;
   }
   
   &_user {
@@ -28,6 +30,8 @@
   
   &_content {
     padding: 10px 0;
+    width: 100%;
+    overflow-wrap:  break-word;
   }
 
 }
@@ -121,4 +125,23 @@
 .comments_container {
   height: 590px;
   overflow: scroll;
+}
+
+
+@media screen and (max-width: 480px) {
+  .new_comment {
+    width: 80%;
+  }
+  
+  .comment_btn_submit, .comment_btn_cancel {
+    width: 90px;
+  }
+  
+  
+  .show_comment_title span {
+    font-size: 18px;
+  }
+  .show_comment_content span {
+    font-size: 12px;
+  }
 }
