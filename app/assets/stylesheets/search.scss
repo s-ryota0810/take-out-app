@@ -87,3 +87,43 @@
   background-color: $primary-color;
   color: white;
 }
+
+@media screen and (max-width: 480px) {
+  .search {
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    margin-bottom: 20px;
+    
+    &_method {
+      min-height: 30px;
+      width: 100%;
+      
+      &_el {
+        padding: 10px;
+        width: 50%;
+        font-size: 14px;  
+      }
+    }
+    
+    &_field {
+      
+      &_input_form {
+        width: 100%;
+        border-radius: 5px;
+        padding: 6px 5px;
+        border: 1px solid $border-color; 
+      }
+      
+      &_select {        
+        select {
+          width: 100%;
+          margin-left: 0;
+          margin-bottom: 3px;
+        }
+  
+      }
+    }
+  
+  }
+}
