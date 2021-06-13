@@ -1,6 +1,6 @@
 class MenusController < ApplicationController
   before_action :authenticate_admin
-  
+
   def new
     @shop = Shop.find(params[:shop_id])
     @menu = @shop.menus.build

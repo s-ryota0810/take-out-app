@@ -48,17 +48,17 @@ class ShopsController < ApplicationController
     shop.destroy!
     redirect_to root_path, notice: '店舗情報を削除しました'
   end
-  
+
   def search
     @results = @q.result
   end
 
   private
-  
+
   def load_areas
     @areas = Area.all
   end
-  
+
   def load_genres
     @genres = Genre.all
   end
@@ -76,7 +76,7 @@ class ShopsController < ApplicationController
       redirect_to root_path, alert: '権限エラーです'
     end
   end
-  
+
   def set_q
     @q = Shop.ransack(params[:q])
   end
