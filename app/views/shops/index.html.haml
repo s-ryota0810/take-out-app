@@ -2,38 +2,7 @@
 .shop
   - @shops.each do |shop|
     = link_to shop_path(shop) do
-      .shop_list
-        .shop_info
-          .shop_info_image
-            = image_tag shop.shop_image
-          .shop_info_description
-            %dl
-              .shop_info_name.clearfix
-                %dt 店舗名
-                %dd= shop.name
-              .shop_info_address.clearfix
-                %dt 住所
-                %dd= shop.address
-              .shop_info_worktime.clearfix
-                %dt 営業時間
-                %dd= "平日：" + shop.weekday_opening + " 土日祝：" + shop.weekend_opening
-              .shop_info_review.clearfix
-                %dt レビュー
-                %dd{id: "star_average_index#{shop.id}"}
-              .shop_info_access.clearfix
-                %dt ジャンル
-                %dd= shop.genre.name
-              :javascript
-                $('#star_average_index#{shop.id}').raty({
-                  size     : 24,
-                  starOff:  '#{asset_path("star-off.png")}',
-                  starOn : '#{asset_path("star-on.png")}',
-                  starHalf: '#{asset_path("star-half.png")}',
-                  score: '#{shop.comments.average(:star).to_f.round(1)}',
-                  readOnly: true,
-                  half: true,
-                });
-
+      = render 'lists', shop: shop
 - if user_signed_in? && current_user.admin?
   .new_shop
     = link_to new_shop_path do
