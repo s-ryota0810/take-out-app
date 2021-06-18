@@ -1,0 +1,35 @@
+= form_with(model: shop, local: true) do |f|
+  .shop_image
+    = f.label :images, '店舗画像'
+    %br/
+    = f.file_field :images, multiple: true
+  .shop_name
+    = f.label :name
+    %br/
+    = f.text_field :name
+  .shop_address
+    = f.label :address
+    %br/
+    = f.text_field :address
+  .shop_genre
+    = f.label :genre
+    %br/
+    = f.collection_select :genre_id, @genres, :id, :name
+  .shop_area
+    = f.label :area
+    %br/
+    = f.collection_select :area_id, @areas, :id, :name
+  .shop_bussiness_time
+    = f.label :weekday_opentime, '開店時間（平日）'
+    = f.time_field :weekday_opentime
+    %br/
+    = f.label :weekday_closetime, '閉店時間（平日）'
+    = f.time_field :weekday_closetime
+    %br/
+    = f.label :weekend_opentime, '開店時間（土日祝）'
+    = f.time_field :weekend_opentime
+    %br/
+    = f.label :weekday_closetime, '閉店時間（土日祝）'
+    = f.time_field :weekend_closetime
+  .shop_submit
+    = f.submit '登録'
